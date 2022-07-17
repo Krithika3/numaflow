@@ -1,12 +1,14 @@
 .heatmap-graph {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: left;
 }
 
 .heatmap-graph-wrapper {
     display: flex;
     text-align: center;
     flex-direction: column;
+    margin-top: 10px;
+    margin-right: 200px;
 }
 
 .hexagon-tooltip {

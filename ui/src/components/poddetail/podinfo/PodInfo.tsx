@@ -3,6 +3,8 @@ import { Pod, PodDetail } from "../../../utils/models/pods";
 import { getPodContainerUsePercentages } from "../../../utils";
 
 import "./PodInfo.css";
+import {Paper, Table, TableCell, TableContainer, TableRow} from "@mui/material";
+import TableBody from "@mui/material/TableBody";
 
 export interface PodInfoProps {
   pod: Pod;
@@ -13,6 +15,7 @@ export interface PodInfoProps {
 const podInfoSx = {
   display: "flex",
   flexDirection: "row",
+  marginLeft: "40px"
 };
 
 const podDataRowSx = {
@@ -71,32 +74,61 @@ export function PodInfo({ pod, podDetail, containerName }: PodInfoProps) {
   }
   return (
     <Box data-testid="podInfo" sx={podInfoSx}>
-      <Box sx={podDataColumnSx}>
-        <Box sx={podDataRowSx}>
-          <Box sx={podDataRowTagSx}>Name:</Box>
-          <Box>{podDetail.name}</Box>
-        </Box>
-      </Box>
-      <Box sx={podDataColumnSx}>
-        <Box sx={podDataRowSx}>
-          <Box sx={podDataRowTagSx}>CPU %:</Box>
-          <Box>{cpuPercent}</Box>
-        </Box>
-        <Box sx={podDataRowSx}>
-          <Box sx={podDataRowTagSx}>CPU:</Box>
-          <Box>{`${usedCPU} / ${specCPU}`}</Box>
-        </Box>
-      </Box>
-      <Box sx={podDataColumnSx}>
-        <Box sx={podDataRowSx}>
-          <Box sx={podDataRowTagSx}>Memory %:</Box>
-          <Box>{memPercent}</Box>
-        </Box>
-        <Box sx={podDataRowSx}>
-          <Box sx={podDataRowTagSx}>Memory:</Box>
-          <Box>{`${usedMem} / ${specMem}`}</Box>
-        </Box>
-      </Box>
+      {/*<Box sx={podDataColumnSx}>*/}
+      {/*  <Box sx={podDataRowSx}>*/}
+      {/*    <Box sx={podDataRowTagSx}>Name:</Box>*/}
+      {/*    <Box>{podDetail.name}</Box>*/}
+      {/*  </Box>*/}
+      {/*</Box>*/}
+      {/*<Box sx={podDataColumnSx}>*/}
+      {/*  <Box sx={podDataRowSx}>*/}
+      {/*    <Box sx={podDataRowTagSx}>CPU %:</Box>*/}
+      {/*    <Box>{cpuPercent}</Box>*/}
+      {/*  </Box>*/}
+      {/*  <Box sx={podDataRowSx}>*/}
+      {/*    <Box sx={podDataRowTagSx}>CPU:</Box>*/}
+      {/*    <Box>{`${usedCPU} / ${specCPU}`}</Box>*/}
+      {/*  </Box>*/}
+      {/*</Box>*/}
+      {/*<Box sx={podDataColumnSx}>*/}
+      {/*  <Box sx={podDataRowSx}>*/}
+      {/*    <Box sx={podDataRowTagSx}>Memory %:</Box>*/}
+      {/*    <Box>{memPercent}</Box>*/}
+      {/*  </Box>*/}
+      {/*  <Box sx={podDataRowSx}>*/}
+      {/*    <Box sx={podDataRowTagSx}>Memory:</Box>*/}
+      {/*    <Box>{`${usedMem} / ${specMem}`}</Box>*/}
+      {/*  </Box>*/}
+      {/*</Box>*/}
+      <TableContainer
+          component={Paper}
+          sx={{ borderBottom: 1, borderColor: "divider", width: 500, boxShadow: 1 }}
+      >
+        <Table aria-label="edge-info">
+          <TableBody>
+            <TableRow data-testid="name">
+              <TableCell>Name</TableCell>
+              <TableCell>{podDetail.name}</TableCell>
+            </TableRow>
+            <TableRow data-testid="CPU %">
+              <TableCell>CPU %</TableCell>
+              <TableCell>{cpuPercent}</TableCell>
+            </TableRow>
+            <TableRow data-testid="CPU">
+              <TableCell>CPU</TableCell>
+              <TableCell>{`${usedCPU} / ${specCPU}`}</TableCell>
+            </TableRow>
+            <TableRow data-testid="Memory %">
+              <TableCell>Memory %</TableCell>
+              <TableCell>{memPercent}</TableCell>
+            </TableRow>
+            <TableRow data-testid="Memory">
+              <TableCell>Memory</TableCell>
+              <TableCell>{`${usedMem} / ${specMem}`}</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
     </Box>
   );
 }

@@ -162,7 +162,7 @@ export function PodLogs({ namespaceId, podName, containerName }: PodLogsProps) {
 
   return (
     <Box>
-      <Box sx={{ display: "flex", flexDirection: "row" }}>
+      <Box sx={{ display: "flex", flexDirection: "row", marginLeft: "40px" }}>
         <Paper
           className="PodLogs-search"
           variant="outlined"
@@ -183,15 +183,6 @@ export function PodLogs({ namespaceId, podName, containerName }: PodLogsProps) {
             <ClearIcon />
           </IconButton>
         </Paper>
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={negateSearch}
-              onChange={handleNegateSearchChange}
-            />
-          }
-          label="Negate search"
-        />
         <IconButton onClick={handlePause}>
           {paused ? <PlayArrowIcon /> : <PauseIcon />}
         </IconButton>
@@ -207,6 +198,9 @@ export function PodLogs({ namespaceId, podName, containerName }: PodLogsProps) {
           marginTop: "25px",
           height: "400px",
           borderRadius: "4px",
+          marginLeft: "40px",
+          marginRight: "40px",
+          marginBottom: "40px"
         }}
       >
         {filteredLogs.map((l: string) => (

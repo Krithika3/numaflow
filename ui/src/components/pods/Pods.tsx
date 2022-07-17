@@ -12,6 +12,7 @@ import { usePodsDetailFetch } from "../../utils/fetchWrappers/podsDetailFetch";
 import { Hexagon } from "../../utils/models/hexagonHeatMap";
 
 import "./Pods.css";
+import {Card} from "@mui/material";
 
 interface PodsProps {
   namespaceId: string;
@@ -89,11 +90,13 @@ export function Pods(props: PodsProps) {
           sx={{
             marginBottom: "10px",
             fontWeight: "bold",
+            marginLeft: "40px",
+            marginTop: "20px"
           }}
         >
           Containers
         </Box>
-        <Stack  direction="row" spacing={1}>
+        <Stack  direction="row" spacing={1} style={{marginLeft: "40px"}}>
           {selectedPod.containers?.map((c: string) => {
             return (
               <Chip key={c}
@@ -105,6 +108,7 @@ export function Pods(props: PodsProps) {
           })}
         </Stack>
       </Box>
+
     );
   }, [selectedPod, selectedContainer]);
 
@@ -117,7 +121,7 @@ export function Pods(props: PodsProps) {
       return;
     }
     return (
-      <Box data-testid={"pod-detail"} sx={{ marginTop: "15px" }}>
+      <Box data-testid={"pod-detail"} sx={{ marginTop: "10px" }}>
         <PodDetail
           namespaceId={namespaceId}
           containerName={selectedContainer}
@@ -171,8 +175,14 @@ export function Pods(props: PodsProps) {
         selectedPod={selectedPod}
         setSelectedPod={setSelectedPod}
       />
+      <Card
+          sx={{ borderBottom: 1, borderColor: "divider", boxShadow: 1 }}
+          data-testid={"card"}
+          variant={"outlined"}
+      >
       {containerSelector}
       {podDetail}
+      </Card>
     </Box>
   );
 }

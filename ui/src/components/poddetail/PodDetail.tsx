@@ -15,6 +15,8 @@ export interface PodDetailProps {
 const headerSx = {
   marginBottom: "10px",
   fontWeight: "bold",
+  marginTop: "15px",
+  marginLeft: "40px"
 };
 
 export function PodDetail({

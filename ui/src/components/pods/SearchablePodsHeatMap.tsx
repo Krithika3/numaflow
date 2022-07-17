@@ -64,34 +64,33 @@ export const SearchablePodsHeatMap = ({
     >
       <Box
         sx={{
-          marginBottom: "10px",
-          fontWeight: "bold",
+          marginBottom: "5px",
         }}
       >
-        Pods
+        Click on different pod hexagons under CPU/MEM display to switch to different pods
       </Box>
-      <Box sx={{ display: "flex", flexDirection: "row", marginBottom: "15px" }}>
-        <Paper
-          className="Pods-search"
-          variant="outlined"
-          sx={{
-            p: "2px 4px",
-            display: "flex",
-            alignItems: "center",
-            width: 400,
-          }}
-        >
-          <InputBase
-            sx={{ ml: 1, flex: 1 }}
-            placeholder="Search pods"
-            value={search}
-            onChange={handleSearchChange}
-          />
-          <IconButton onClick={handleSearchClear}>
-            <ClearIcon />
-          </IconButton>
-        </Paper>
-      </Box>
+      {/*<Box sx={{ display: "flex", flexDirection: "row", marginBottom: "15px" }}>*/}
+      {/*  <Paper*/}
+      {/*    className="Pods-search"*/}
+      {/*    variant="outlined"*/}
+      {/*    sx={{*/}
+      {/*      p: "2px 4px",*/}
+      {/*      display: "flex",*/}
+      {/*      alignItems: "center",*/}
+      {/*      width: 400,*/}
+      {/*    }}*/}
+      {/*  >*/}
+      {/*    <InputBase*/}
+      {/*      sx={{ ml: 1, flex: 1 }}*/}
+      {/*      placeholder="Search pods"*/}
+      {/*      value={search}*/}
+      {/*      onChange={handleSearchChange}*/}
+      {/*    />*/}
+      {/*    <IconButton onClick={handleSearchClear}>*/}
+      {/*      <ClearIcon />*/}
+      {/*    </IconButton>*/}
+      {/*  </Paper>*/}
+      {/*</Box>*/}
       <PodsHeatMap
         pods={filteredPods}
         podsDetailMap={podsDetailMap}
