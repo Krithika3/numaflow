@@ -1,9 +1,5 @@
-import {useState, useEffect, useCallback, ChangeEvent, Dispatch, SetStateAction} from "react";
+import {useState, useEffect, Dispatch, SetStateAction} from "react";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import InputBase from "@mui/material/InputBase";
-import IconButton from "@mui/material/IconButton";
-import ClearIcon from "@mui/icons-material/Clear";
 import { EventType } from "@visx/event/lib/types";
 import { PodsHeatMap } from "./PodsHeatMap";
 import { Pod, PodDetail } from "../../utils/models/pods";
@@ -25,7 +21,7 @@ export const SearchablePodsHeatMap = ({
   selectedPod,
   setSelectedPod,
 }: PodsHeatMapProps) => {
-  const [search, setSearch] = useState<string>("");
+  const [search] = useState<string>("");
   const [filteredPods, setFilteredPods] = useState<Pod[]>(pods);
 
   useEffect(() => {
@@ -46,17 +42,6 @@ export const SearchablePodsHeatMap = ({
     setFilteredPods(filteredPods);
   }, [pods, search]);
 
-  const handleSearchChange = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      setSearch(event.target.value);
-    },
-    []
-  );
-
-  const handleSearchClear = useCallback(() => {
-    setSearch("");
-  }, []);
-
   return (
     <Box
       data-testid={"searchable-pods"}
@@ -69,28 +54,6 @@ export const SearchablePodsHeatMap = ({
       >
         Click on different pod hexagons under CPU/MEM display to switch to different pods
       </Box>
-      {/*<Box sx={{ display: "flex", flexDirection: "row", marginBottom: "15px" }}>*/}
-      {/*  <Paper*/}
-      {/*    className="Pods-search"*/}
-      {/*    variant="outlined"*/}
-      {/*    sx={{*/}
-      {/*      p: "2px 4px",*/}
-      {/*      display: "flex",*/}
-      {/*      alignItems: "center",*/}
-      {/*      width: 400,*/}
-      {/*    }}*/}
-      {/*  >*/}
-      {/*    <InputBase*/}
-      {/*      sx={{ ml: 1, flex: 1 }}*/}
-      {/*      placeholder="Search pods"*/}
-      {/*      value={search}*/}
-      {/*      onChange={handleSearchChange}*/}
-      {/*    />*/}
-      {/*    <IconButton onClick={handleSearchClear}>*/}
-      {/*      <ClearIcon />*/}
-      {/*    </IconButton>*/}
-      {/*  </Paper>*/}
-      {/*</Box>*/}
       <PodsHeatMap
         pods={filteredPods}
         podsDetailMap={podsDetailMap}

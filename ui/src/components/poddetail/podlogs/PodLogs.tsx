@@ -6,8 +6,6 @@ import IconButton from "@mui/material/IconButton";
 import ClearIcon from "@mui/icons-material/Clear";
 import PauseIcon from "@mui/icons-material/Pause";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Highlighter from "react-highlight-words";
 import "@stardazed/streams-polyfill";
 import "./PodLogs.css";
@@ -61,7 +59,7 @@ export function PodLogs({ namespaceId, podName, containerName }: PodLogsProps) {
     ReadableStreamDefaultReader | undefined
   >();
   const [search, setSearch] = useState<string>("");
-  const [negateSearch, setNegateSearch] = useState<boolean>(false);
+  const [negateSearch] = useState<boolean>(false);
   const [paused, setPaused] = useState<boolean>(false);
 
   useEffect(() => {
@@ -144,13 +142,6 @@ export function PodLogs({ namespaceId, podName, containerName }: PodLogsProps) {
   const handleSearchClear = useCallback(() => {
     setSearch("");
   }, []);
-
-  const handleNegateSearchChange = useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      setNegateSearch(event.target.checked);
-    },
-    []
-  );
 
   const handlePause = useCallback(() => {
     setPaused(!paused);

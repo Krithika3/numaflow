@@ -11,6 +11,22 @@
     margin-right: 200px;
 }
 
+.heatmap-divider-wrapper {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.heatmap-percent-wrapper {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 100px;
+}
+
 .hexagon-tooltip {
     padding: 5px;
     transform: translate(10%, -75%);

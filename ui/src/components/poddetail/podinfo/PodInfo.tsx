@@ -18,23 +18,6 @@ const podInfoSx = {
   marginLeft: "40px"
 };
 
-const podDataRowSx = {
-  display: "flex",
-  flexDirection: "row",
-  paddingBottom: "10px",
-};
-
-const podDataColumnSx = {
-  display: "flex",
-  flexDirection: "column",
-  paddingBottom: "10px",
-  width: "30%",
-};
-
-const podDataRowTagSx = {
-  width: "25%",
-};
-
 export function PodInfo({ pod, podDetail, containerName }: PodInfoProps) {
   const resourceUsage = getPodContainerUsePercentages(
     pod,

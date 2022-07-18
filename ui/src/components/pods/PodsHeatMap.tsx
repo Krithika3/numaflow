@@ -9,6 +9,7 @@ import {
 } from "../../utils/models/podsHeatMap";
 
 import "./PodsHeatMap.css";
+import {Divider} from "@mui/material";
 
 export const PodsHeatMap = ({
   pods,
@@ -178,6 +179,22 @@ export const PodsHeatMap = ({
           tooltipClass="hexagon-tooltip"
           selected={selectedPod?.name}
         />
+      </div>
+      <div className="heatmap-divider-wrapper">
+        <span/>
+      <Divider orientation="vertical" sx={{height: "50px",  background: "#0077C5", width: "2px", marginTop: "20px"}} />
+      </div>
+      <div className="heatmap-percent-wrapper">
+        <span>CPU(main/udf)</span>
+        <span>80.0/100</span>
+      </div>
+      <div className="heatmap-divider-wrapper">
+        <span/>
+        <Divider orientation="vertical" sx={{height: "50px",  background: "#0077C5", width: "2px", marginTop: "20px"}} />
+      </div>
+      <div className="heatmap-percent-wrapper">
+        <span>MEM(main/udf)</span>
+        <span>80.0/100</span>
       </div>
     </div>
   );
